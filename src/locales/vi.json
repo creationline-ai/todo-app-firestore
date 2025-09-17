@@ -1,0 +1,44 @@
+{
+  "header": {
+    "title": "Quản lý Công việc",
+    "description": "Ứng dụng quản lý công việc hiệu quả với đầy đủ chức năng CRUD",
+    "total": "Tổng cộng",
+    "completed": "Hoàn thành",
+    "pending": "Đang chờ"
+  },
+  "form": {
+    "addNewTask": "Thêm Công việc Mới",
+    "taskTitle": "Tiêu đề Công việc",
+    "taskTitleRequired": "Tiêu đề Công việc *",
+    "taskTitlePlaceholder": "Nhập tiêu đề công việc...",
+    "description": "Mô tả (Tùy chọn)",
+    "descriptionPlaceholder": "Thêm mô tả...",
+    "addTask": "Thêm Công việc"
+  },
+  "empty": {
+    "noTasks": "Chưa có công việc nào",
+    "getStarted": "Thêm công việc đầu tiên của bạn ở trên để bắt đầu!"
+  },
+  "task": {
+    "createdDate": "Ngày tạo",
+    "updatedDate": "Ngày cập nhật"
+  },
+  "dialog": {
+    "editTask": "Chỉnh sửa Công việc",
+    "editTitle": "Tiêu đề Công việc *",
+    "editTitlePlaceholder": "Nhập tiêu đề công việc...",
+    "editDescription": "Mô tả",
+    "editDescriptionPlaceholder": "Thêm mô tả...",
+    "cancel": "Hủy",
+    "updateTask": "Cập nhật Công việc",
+    "deleteTask": "Xóa Công việc",
+    "deleteConfirmation": "Bạn có chắc chắn muốn xóa \"{{title}}\"? Hành động này không thể hoàn tác.",
+    "delete": "Xóa"
+  },
+  "language": {
+    "japanese": "日本語",
+    "english": "English",
+    "thai": "ไทย",
+    "vietnamese": "Tiếng Việt"
+  }
+}
