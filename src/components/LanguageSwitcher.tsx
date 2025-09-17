@@ -6,7 +6,8 @@ import { Globe } from 'lucide-react';
 const languages = [
   { code: 'ja', name: 'japanese' },
   { code: 'en', name: 'english' },
-  { code: 'th', name: 'thai' }
+  { code: 'th', name: 'thai' },
+  { code: 'zh', name: 'chinese' }
 ];
 
 export function LanguageSwitcher() {
