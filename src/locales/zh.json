@@ -1,0 +1,44 @@
+{
+  "header": {
+    "title": "任务管理",
+    "description": "高效的任务管理应用，具备完整的CRUD功能",
+    "total": "总计",
+    "completed": "已完成",
+    "pending": "待完成"
+  },
+  "form": {
+    "addNewTask": "添加新任务",
+    "taskTitle": "任务标题",
+    "taskTitleRequired": "任务标题 *",
+    "taskTitlePlaceholder": "输入任务标题...",
+    "description": "描述（可选）",
+    "descriptionPlaceholder": "添加描述...",
+    "addTask": "添加任务"
+  },
+  "empty": {
+    "noTasks": "暂无任务",
+    "getStarted": "在上方添加您的第一个任务开始使用！"
+  },
+  "task": {
+    "createdDate": "创建日期",
+    "updatedDate": "更新日期"
+  },
+  "dialog": {
+    "editTask": "编辑任务",
+    "editTitle": "任务标题 *",
+    "editTitlePlaceholder": "输入任务标题...",
+    "editDescription": "描述",
+    "editDescriptionPlaceholder": "添加描述...",
+    "cancel": "取消",
+    "updateTask": "更新任务",
+    "deleteTask": "删除任务",
+    "deleteConfirmation": "您确定要删除\"{{title}}\"吗？此操作无法撤销。",
+    "delete": "删除"
+  },
+  "language": {
+    "japanese": "日本語",
+    "english": "English",
+    "thai": "ไทย",
+    "chinese": "中文"
+  }
+}
