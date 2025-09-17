@@ -1,0 +1,43 @@
+{
+  "header": {
+    "title": "Task Management",
+    "description": "Efficient task management app with full CRUD functionality",
+    "total": "Total",
+    "completed": "Completed",
+    "pending": "Pending"
+  },
+  "form": {
+    "addNewTask": "Add New Task",
+    "taskTitle": "Task Title",
+    "taskTitleRequired": "Task Title *",
+    "taskTitlePlaceholder": "Enter task title...",
+    "description": "Description (Optional)",
+    "descriptionPlaceholder": "Add description...",
+    "addTask": "Add Task"
+  },
+  "empty": {
+    "noTasks": "No tasks yet",
+    "getStarted": "Add your first task above to get started!"
+  },
+  "task": {
+    "createdDate": "Created",
+    "updatedDate": "Updated"
+  },
+  "dialog": {
+    "editTask": "Edit Task",
+    "editTitle": "Task Title *",
+    "editTitlePlaceholder": "Enter task title...",
+    "editDescription": "Description",
+    "editDescriptionPlaceholder": "Add description...",
+    "cancel": "Cancel",
+    "updateTask": "Update Task",
+    "deleteTask": "Delete Task",
+    "deleteConfirmation": "Are you sure you want to delete \"{{title}}\"? This action cannot be undone.",
+    "delete": "Delete"
+  },
+  "language": {
+    "japanese": "日本語",
+    "english": "English",
+    "thai": "ไทย"
+  }
+}

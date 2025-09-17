@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -10,6 +11,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Plus, Edit2, Trash2, CheckCircle2, Circle } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 
 interface Todo {
   id: string;
@@ -21,6 +23,7 @@ interface Todo {
 }
 
 function App() {
+  const { t, i18n } = useTranslation();
   const [todos, setTodos] = useState<Todo[]>([]);
   const [newTitle, setNewTitle] = useState('');
   const [newDescription, setNewDescription] = useState('');
@@ -33,7 +36,7 @@ function App() {
   useEffect(() => {
     const savedTodos = localStorage.getItem('todos');
     if (savedTodos) {
-      const parsedTodos = JSON.parse(savedTodos).map((todo: any) => ({
+      const parsedTodos = JSON.parse(savedTodos).map((todo: Todo & { createdAt: string; updatedAt: string }) => ({
         ...todo,
         createdAt: new Date(todo.createdAt),
         updatedAt: new Date(todo.updatedAt),
@@ -116,21 +119,24 @@ function App() {
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-8">
+          <div className="flex justify-end mb-4">
+            <LanguageSwitcher />
+          </div>
           <h1 className="text-4xl font-bold text-slate-800 dark:text-slate-100 mb-2">
-            タスク管理
+            {t('header.title')}
           </h1>
           <p className="text-slate-600 dark:text-slate-400 mb-4">
-            効率的にタスクを管理できる完全なCRUD機能付きアプリ
+            {t('header.description')}
           </p>
           <div className="flex justify-center gap-4">
             <Badge variant="outline" className="text-sm">
-              合計: {totalCount}
+              {t('header.total')}: {totalCount}
             </Badge>
             <Badge variant="default" className="text-sm bg-green-600">
-              完了: {completedCount}
+              {t('header.completed')}: {completedCount}
             </Badge>
             <Badge variant="secondary" className="text-sm">
-              未完了: {totalCount - completedCount}
+              {t('header.pending')}: {totalCount - completedCount}
             </Badge>
           </div>
         </div>
@@ -140,15 +146,15 @@ function App() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Plus className="h-5 w-5 text-blue-600" />
-              新しいタスクを追加
+              {t('form.addNewTask')}
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="title">タスクタイトル *</Label>
+              <Label htmlFor="title">{t('form.taskTitleRequired')}</Label>
               <Input
                 id="title"
-                placeholder="タスクタイトルを入力..."
+                placeholder={t('form.taskTitlePlaceholder')}
                 value={newTitle}
                 onChange={(e) => setNewTitle(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && addTodo()}
@@ -156,10 +162,10 @@ function App() {
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="description">説明（任意）</Label>
+              <Label htmlFor="description">{t('form.description')}</Label>
               <Input
                 id="description"
-                placeholder="説明を追加..."
+                placeholder={t('form.descriptionPlaceholder')}
                 value={newDescription}
                 onChange={(e) => setNewDescription(e.target.value)}
                 className="border-slate-300 focus:border-blue-500"
@@ -171,7 +177,7 @@ function App() {
               className="w-full bg-blue-600 hover:bg-blue-700 transition-colors"
             >
               <Plus className="h-4 w-4 mr-2" />
-              タスクを追加
+              {t('form.addTask')}
             </Button>
           </CardContent>
         </Card>
@@ -183,8 +189,8 @@ function App() {
               <CardContent>
                 <div className="text-slate-500 dark:text-slate-400">
                   <Circle className="h-16 w-16 mx-auto mb-4 opacity-50" />
-                  <p className="text-lg font-medium mb-2">まだタスクがありません</p>
-                  <p>上記から最初のタスクを追加して始めましょう！</p>
+                  <p className="text-lg font-medium mb-2">{t('empty.noTasks')}</p>
+                  <p>{t('empty.getStarted')}</p>
                 </div>
               </CardContent>
             </Card>
@@ -232,11 +238,11 @@ function App() {
                         </p>
                       )}
                       <div className="flex items-center gap-2 text-xs text-slate-400 dark:text-slate-500">
-                        <span>作成日: {todo.createdAt.toLocaleDateString('ja-JP')}</span>
+                        <span>{t('task.createdDate')}: {todo.createdAt.toLocaleDateString(i18n.language)}</span>
                         {todo.updatedAt.getTime() !== todo.createdAt.getTime() && (
                           <>
                             <Separator orientation="vertical" className="h-3" />
-                            <span>更新日: {todo.updatedAt.toLocaleDateString('ja-JP')}</span>
+                            <span>{t('task.updatedDate')}: {todo.updatedAt.toLocaleDateString(i18n.language)}</span>
                           </>
                         )}
                       </div>
@@ -271,25 +277,25 @@ function App() {
                         </DialogTrigger>
                         <DialogContent className="sm:max-w-[425px]">
                           <DialogHeader>
-                            <DialogTitle>タスクを編集</DialogTitle>
+                            <DialogTitle>{t('dialog.editTask')}</DialogTitle>
                           </DialogHeader>
                           <div className="space-y-4 py-4">
                             <div className="space-y-2">
-                              <Label htmlFor="edit-title">タスクタイトル *</Label>
+                              <Label htmlFor="edit-title">{t('dialog.editTitle')}</Label>
                               <Input
                                 id="edit-title"
                                 value={editTitle}
                                 onChange={(e) => setEditTitle(e.target.value)}
-                                placeholder="タスクタイトルを入力..."
+                                placeholder={t('dialog.editTitlePlaceholder')}
                               />
                             </div>
                             <div className="space-y-2">
-                              <Label htmlFor="edit-description">説明</Label>
+                              <Label htmlFor="edit-description">{t('dialog.editDescription')}</Label>
                               <Input
                                 id="edit-description"
                                 value={editDescription}
                                 onChange={(e) => setEditDescription(e.target.value)}
-                                placeholder="説明を追加..."
+                                placeholder={t('dialog.editDescriptionPlaceholder')}
                               />
                             </div>
                             <div className="flex justify-end gap-2">
@@ -297,14 +303,14 @@ function App() {
                                 variant="outline"
                                 onClick={() => setIsEditDialogOpen(false)}
                               >
-                                キャンセル
+                                {t('dialog.cancel')}
                               </Button>
                               <Button
                                 onClick={updateTodo}
                                 disabled={!editTitle.trim()}
                                 className="bg-blue-600 hover:bg-blue-700"
                               >
-                                タスクを更新
+                                {t('dialog.updateTask')}
                               </Button>
                             </div>
                           </div>
@@ -324,18 +330,18 @@ function App() {
                         </AlertDialogTrigger>
                         <AlertDialogContent>
                           <AlertDialogHeader>
-                            <AlertDialogTitle>タスクを削除</AlertDialogTitle>
+                            <AlertDialogTitle>{t('dialog.deleteTask')}</AlertDialogTitle>
                             <AlertDialogDescription>
-                              「{todo.title}」を削除してもよろしいですか？この操作は元に戻せません。
+                              {t('dialog.deleteConfirmation', { title: todo.title })}
                             </AlertDialogDescription>
                           </AlertDialogHeader>
                           <AlertDialogFooter>
-                            <AlertDialogCancel>キャンセル</AlertDialogCancel>
+                            <AlertDialogCancel>{t('dialog.cancel')}</AlertDialogCancel>
                             <AlertDialogAction
                               onClick={() => deleteTodo(todo.id)}
                               className="bg-red-600 hover:bg-red-700"
                             >
-                              削除
+                              {t('dialog.delete')}
                             </AlertDialogAction>
                           </AlertDialogFooter>
                         </AlertDialogContent>

@@ -1,0 +1,43 @@
+{
+  "header": {
+    "title": "タスク管理",
+    "description": "効率的にタスクを管理できる完全なCRUD機能付きアプリ",
+    "total": "合計",
+    "completed": "完了",
+    "pending": "未完了"
+  },
+  "form": {
+    "addNewTask": "新しいタスクを追加",
+    "taskTitle": "タスクタイトル",
+    "taskTitleRequired": "タスクタイトル *",
+    "taskTitlePlaceholder": "タスクタイトルを入力...",
+    "description": "説明（任意）",
+    "descriptionPlaceholder": "説明を追加...",
+    "addTask": "タスクを追加"
+  },
+  "empty": {
+    "noTasks": "まだタスクがありません",
+    "getStarted": "上記から最初のタスクを追加して始めましょう！"
+  },
+  "task": {
+    "createdDate": "作成日",
+    "updatedDate": "更新日"
+  },
+  "dialog": {
+    "editTask": "タスクを編集",
+    "editTitle": "タスクタイトル *",
+    "editTitlePlaceholder": "タスクタイトルを入力...",
+    "editDescription": "説明",
+    "editDescriptionPlaceholder": "説明を追加...",
+    "cancel": "キャンセル",
+    "updateTask": "タスクを更新",
+    "deleteTask": "タスクを削除",
+    "deleteConfirmation": "「{{title}}」を削除してもよろしいですか？この操作は元に戻せません。",
+    "delete": "削除"
+  },
+  "language": {
+    "japanese": "日本語",
+    "english": "English",
+    "thai": "ไทย"
+  }
+}

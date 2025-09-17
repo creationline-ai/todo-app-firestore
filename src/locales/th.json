@@ -1,0 +1,43 @@
+{
+  "header": {
+    "title": "การจัดการงาน",
+    "description": "แอปจัดการงานที่มีประสิทธิภาพพร้อมฟังก์ชัน CRUD ครบครัน",
+    "total": "ทั้งหมด",
+    "completed": "เสร็จแล้ว",
+    "pending": "รอดำเนินการ"
+  },
+  "form": {
+    "addNewTask": "เพิ่มงานใหม่",
+    "taskTitle": "ชื่องาน",
+    "taskTitleRequired": "ชื่องาน *",
+    "taskTitlePlaceholder": "กรอกชื่องาน...",
+    "description": "คำอธิบาย (ไม่บังคับ)",
+    "descriptionPlaceholder": "เพิ่มคำอธิบาย...",
+    "addTask": "เพิ่มงาน"
+  },
+  "empty": {
+    "noTasks": "ยังไม่มีงาน",
+    "getStarted": "เพิ่มงานแรกของคุณด้านบนเพื่อเริ่มต้น!"
+  },
+  "task": {
+    "createdDate": "วันที่สร้าง",
+    "updatedDate": "วันที่อัปเดต"
+  },
+  "dialog": {
+    "editTask": "แก้ไขงาน",
+    "editTitle": "ชื่องาน *",
+    "editTitlePlaceholder": "กรอกชื่องาน...",
+    "editDescription": "คำอธิบาย",
+    "editDescriptionPlaceholder": "เพิ่มคำอธิบาย...",
+    "cancel": "ยกเลิก",
+    "updateTask": "อัปเดตงาน",
+    "deleteTask": "ลบงาน",
+    "deleteConfirmation": "คุณแน่ใจหรือไม่ว่าต้องการลบ \"{{title}}\"? การดำเนินการนี้ไม่สามารถยกเลิกได้",
+    "delete": "ลบ"
+  },
+  "language": {
+    "japanese": "日本語",
+    "english": "English",
+    "thai": "ไทย"
+  }
+}
